@@ -1,5 +1,4 @@
--- Meera's content pipeline (memory layer). Tables are prefixed `meera_` because this
--- Supabase project (mesa-ai-track) is shared with other apps.
+-- Meera's content pipeline (memory layer), in the Supabase project "Meera Database".
 -- Only the Vercel webhook touches these, using the secret key. RLS is on with no
 -- policies, so the publishable key can read nothing.
 -- Nothing is ever deleted: rejected notes and drafts show what needs improving.
@@ -38,6 +37,7 @@ create table if not exists meera_drafts (
 );
 
 create index if not exists meera_drafts_msg_ids on meera_drafts using gin (telegram_message_ids);
+create index if not exists meera_drafts_note_id on meera_drafts (note_id);
 
 alter table meera_voice_skill enable row level security;
 alter table meera_notes enable row level security;
