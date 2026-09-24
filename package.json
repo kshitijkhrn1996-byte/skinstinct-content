@@ -1,0 +1,14 @@
+{
+  "name": "skinstinct-linkedin-bot",
+  "version": "1.0.0",
+  "description": "Telegram notes -> scored, news-angled LinkedIn drafts in Meera's voice, stored in Supabase for approval. Never posts.",
+  "type": "module",
+  "scripts": {
+    "try": "node --env-file=.env scripts/try.mjs",
+    "seed-voice": "node --env-file=.env scripts/seed-voice.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.1",
+    "@vercel/functions": "^3.9.9"
+  }
+}
