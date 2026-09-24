@@ -22,7 +22,7 @@ async function send(chatId, text, replyTo) {
       chat_id: chatId,
       text: text.slice(i, i + 4000),
       link_preview_options: { is_disabled: true },
-      ...(replyTo && i === 0 ? { reply_parameters: { message_id: replyTo } } : {}),
+      ...(replyTo && i === 0 ? { reply_parameters: { message_id: replyTo, allow_sending_without_reply: true } } : {}),
     });
     ids.push(msg.message_id);
   }
